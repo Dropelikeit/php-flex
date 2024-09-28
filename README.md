@@ -49,6 +49,24 @@ chmod -x uninstall.sh && \
 source ~/<.zshrc | .bashrc>
 ```
 
+# Tests
+
+---
+
+The scripts `install.sh` and `uninstall.sh` in the dir `src` are tested with [bats](https://bats-core.readthedocs.io/en/stable/).
+
+To ensure that your configuration files (.zshrc or .bashrc) are not changed or even rendered unusable by the tests, a Docker image was added to the project. The tests should only be executed within the Docker container, otherwise the tests could change or even delete their configuration file.
+
+The Docker image is based on an Ubuntu image with Homebrew installed.
+
+If you want to run the tests, you only need to execute the following command:
+
+```bash
+make test
+```
+
+When the command is executed, a Docker container is built and the tests are executed in it.
+
 # Contributions
 
 ---
